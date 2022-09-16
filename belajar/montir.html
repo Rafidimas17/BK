@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karir</title>
+</head>
+<body>
+    
+    <div class="container">
+    <div class="card" id="apakah">
+    <h1>Halo selamat datang</h1>
+    <p>Apakah kamu suka aku?</p>
+    <!-- <a href="gunung.html" style="text-decoration:none;"> -->
+    <button id="benar" onclick="perasaan()" value="iya">Iya</button>
+    <button id="tidak" onclick="tidak()" value="tidak">Tidak</button>
+    <!-- </a> -->
+    <button id="reset" onclick="reset()" value="reset">Reset</button>
+    <button id="tampil" onclick="tampil()" value="reset">Tampil</button>
+    </div>
+    </div>      
+    <p>Apakah kamu suka ke gunung?</p>
+    <a href="gunung.html">
+    <button id="gunung" onclick="gunung()" value="gunung" >Iya</button>
+    <button id="tidak" onclick="tidak()" value="tidak">Tidak</button>
+    </a>
+    <button id="reset" onclick="reset()" value="reset">Reset</button>
+    <button id="tampil" onclick="tampil()" value="reset">Tampil</button>
+    
+    <script>
+        let local= localStorage;
+        function perasaan(){
+            var new_data=document.getElementById('benar').value;
+            if(local.getItem('data_iya','data_tidak','data_gunung')==null){
+                local.setItem('data_iya','[]');
+                local.setItem('data_tidak','[]');
+                local.setItem('data_gunung','[]');
+            }
+
+            var old_data=JSON.parse(local.getItem('data_iya'));
+            old_data.push(new_data);
+            local.setItem('data_iya',JSON.stringify(old_data));
+        }
+        function tidak(){
+            var new_data=document.getElementById('tidak').value;
+            if(local.getItem('data_iya')==null){
+                local.setItem('data_iya','[]');
+            }
+
+            var old_data=JSON.parse(local.getItem('data_iya'));
+            old_data.push(new_data);
+            local.setItem('data_iya',JSON.stringify(old_data));
+        }
+        function gunung(){
+            var new_data=document.getElementById('gunung').value;
+            if(local.getItem('data_gunung')==null){
+                local.setItem('data_gunung','[]');
+            }
+
+            var old_data=JSON.parse(local.getItem('data_gunung'));
+            old_data.push(new_data);
+            local.setItem('data_gunung',JSON.stringify(old_data));
+        }
+        function reset(){
+            local.removeItem('data_iya')
+            local.removeItem('data_gunung')
+            
+        }
+        function tampil(){
+            const panjang=JSON.parse(local.getItem('data_iya'));
+            const iya=panjang.filter(el=>el==="iya");
+            const panjang_gunung=JSON.parse(local.getItem('data_gunung'));
+            const total_iya=panjang.length; 
+            const total_gunung=panjang_gunung.length; 
+            document.write("ada data iya sebanyak"+iya); 
+            document.write("ada data gunung sebanyak"+total_gunung); 
+            
+        }
+    </script>
+</body>
+</html>

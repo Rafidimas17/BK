@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <style>
+        table {
+            border-collapse: collapse;
+            background-color: antiquewhite;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            background-color: antiquewhite;
+            font-family: poppins;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+  </head>
+ <body style="background-color:rgb(178, 235, 243)">
+<div class="card" style="background-color:rgb(178, 235, 243)">  
+    <center>
+  <h1 class ="card-header">Hasil</h1>
+  </center>
+  <div class="card-body" style="margin-top: 30px;">
+    <table class="table">
+  
+  <tbody>
+    <tr>
+      <td style="font-size:18px;font-family: poppins; font-weight:800;text-align:center;">Skor</td>
+      <td style="font-size:18px;font-family: poppins; font-weight:800;text-align:center;">Tipe</td>
+      <td style="font-size:18px;font-family: poppins; font-weight:800;text-align:center;">Penjelasan</td>
+    </tr>
+    <tr>
+      <!-- <th scope="row">2</th> -->
+      <td><h5 id="realistic"></h5></td>
+      <td>Realistik</td>
+      <td>Model ini memiliki kecenderungan untuk memilih lapangan kerja yang berorientasi kepada penerapan</td>
+    </tr>
+    <tr>
+      <!-- <th scope="row">3</th> -->
+      <td><h5 id="investigative"></h5></td>
+      <td>Intelektual</td>
+      <td>Model ini memiliki kecenderungan untuk memilih pekerjaan yang bersifat akademik</td>
+    </tr>
+    <tr>
+      <!-- <th scope="row">3</th> -->
+      <td><h5 id="social"></h5></td>
+      <td>Sosial</td>
+      <td>Model ini memiliki kecenderungan untuk memilih lapangan pekerjaan bersifat membantu orang lain</td>
+    </tr>
+    <tr>
+      <!-- <th scope="row">2</th> -->
+      <td><h5 id="conventional"></h5></td>
+      <td>Konvensional</td>
+      <td>Model ini pada umumunya memiliki kecenderungan untuk terhadap kegiatan verbal, <br> ia menyenangi bahasa yang tersusun baik, numerical(angka) yang teratur</td>
+    </tr>
+    <tr>
+      <!-- <th scope="row">2</th> -->
+      <td><h5 id="artistic"></h5></td>
+      <td>Artistik</td>
+      <td>Model tipe kepribadian ini menghargai orang lain yang ekspresif dan mandiri. Mereka senang bekerja dalam kelompok yang mengijinkannya berekspresi <br> dengan bebas dan didorong untuk membagikan ide atau gagasannya.</td>
+    </tr>
+    <tr>
+      <!-- <th scope="row">2</th> -->
+      <td><h5 id="enterprising"></h5></td>
+      <td>Pengusaha</td>
+      <td>Model ini memiliki khas diantaranya menggunakan keterampilan-keterampilan berbicara dalam situasi dimana ada kesemparan untuk menguasai orang lain atau mempengaruhi orang lain.</td>
+    </tr>
+  </tbody>
+</table>
+    <!-- <h5 class="card-title">Jumlah data realistic : <span id="realistic"></span></h5>
+    <h5 class="card-title">Jumlah data investigative : <span id="investigative"></span></h5>
+    <h5 class="card-title">Jumlah data artistic : <span id="artistic"></span></h5>
+    <h5 class="card-title">Jumlah data social : <span id="social"></span></h5>
+    <h5 class="card-title">Jumlah data enterprising : <span id="enterprising"></span></h5>
+    <h5 class="card-title">Jumlah data conventional : <span id="conventional"></span></h5> -->
+    <!-- <h5 class="card-title">Jumlah data realistic : <span id="realistic"></span></h5> -->
+    <center>
+    <a href="../index.html" class="btn btn-primary" id="ulang" onclick="ulang()" style="font-family: poppins; font-size:12px;font-weight:400;">Mulai Ulang</a>
+</center>  
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
+    
+    </script>
+    <script>
+        let local=localStorage;
+        const panjang1=JSON.parse(local.getItem('data_realistic'));
+        const panjang2=JSON.parse(local.getItem('data_investigative'));
+        const panjang3=JSON.parse(local.getItem('data_artistic'));
+        const panjang4=JSON.parse(local.getItem('data_social'));
+        const panjang5=JSON.parse(local.getItem('data_enterprising'));
+        const panjang6=JSON.parse(local.getItem('data_conventional'));
+         const total_1=panjang1.length; 
+         const total_2=panjang2.length; 
+         const total_3=panjang3.length; 
+         const total_4=panjang4.length; 
+         const total_5=panjang5.length; 
+         const total_6=panjang6.length; 
+        const element1 = document.getElementById("realistic");
+        const element2 = document.getElementById("investigative");
+        const element3 = document.getElementById("artistic");
+        const element4 = document.getElementById("social");
+        const element5 = document.getElementById("enterprising");
+        const element6 = document.getElementById("conventional");
+        element1.innerHTML = total_1;
+        element2.innerHTML = total_2;
+        element3.innerHTML = total_3;
+        element4.innerHTML = total_4;
+        element5.innerHTML = total_5;
+        element6.innerHTML = total_6;
+        function ulang(){
+            local.removeItem('data_realistic')
+            local.removeItem('data_investigative')
+            local.removeItem('data_artistic')
+            local.removeItem('data_social')
+            local.removeItem('data_enterprising')
+            local.removeItem('data_conventional')
+            local.removeItem('data_false')
+        }
+    </script>
+    
+    <script type = "text/javascript" >
+function preventBack(){window.history.forward();}
+setTimeout("preventBack()", 0);
+window.onunload=function(){null};
+</script>
+</body>
+</html>
